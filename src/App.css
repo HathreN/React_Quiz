@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#homePageBackground {
+  background-color: #F7F7F7;
+  background-size: cover;
+  background-image: url('./images/background.jpg');
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+#homePageContent {
+  margin-top: 10%;
+  height: 60vh;
+}
+#categoryBackground {
+  background-color: #F7F7F7;
+  background-size: cover;
+  background-image: url('./images/background.jpg');
+  width: 100vw;
+  height: 100vh;
+  display: inline-flex;
+  justify-content: center;
+}
+#categoryContent {
+  margin-top: 2%;
+  height: 60vh;
+  justify-content: center;
+}
+#categoriesMap {
+  margin-top: 2%;
+  height: 60vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  overflow: auto;
+  justify-content: center;
+}
+#quizQuestion{
+  font-size: 20px;
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 20px;
+  box-shadow: 0 9px #999;
+  border-spacing: 10px;
+  margin: 20px 20px 40px;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+#resultPageBackground{
+  background-color: #F7F7F7;
+  background-size: cover;
+  background-image: url('./images/background.jpg');
+  width: 100vw;
+  height: 100vh;
+  display: list-item;
+  justify-content: center;
+}
+.homePageButton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-bottom: 100px;
+}
+.resultScoreButton{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-bottom: 100px;
+  height: 150px;
+}
+.resultPostScoreButton{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-bottom: 100px;
+  height: 150px;
+}
+.resultPostScoreButton:disabled{
+  visibility: hidden;
+}
+#resultContent{
+  border-style: solid;
+  border-color: black;
+  margin-left: 20px;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  justify-content: center;
+}
+#individualResult{
+  border-style: solid;
+  border-radius: 50px;
+  margin: 10px 10px 10px 10px;
+  border-color: black;
+  justify-content: center;
+  width: 50vh;
+  height: 5vw;
+  color: white;
+  background-color: #4CAF50;
+}
+.homePageButton:hover {background-color: #3e8e41}
+
+.homePageButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
