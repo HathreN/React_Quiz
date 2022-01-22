@@ -29,7 +29,8 @@ const Login = () => {
                 password: password,
             }
         }).then((response) => {
-            localStorage.setItem('userID', response.data.token);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('userName',email);
             localStorage.setItem('isLoggedIn', 'yes');
             HandleChangeRoute();
         }).catch((error) => {

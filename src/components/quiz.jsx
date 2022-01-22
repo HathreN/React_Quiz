@@ -18,7 +18,8 @@ const Quiz = () => {
             const data = response.data;
             setCategoryQuestions(data[id].questionsDetails);
             setCategory(data[id].name);
-            setUserName(localStorage.getItem("userID"))
+            setToken(localStorage.getItem("token"))
+            setUserName(localStorage.getItem("userName"))
             console.log('Data has been received!');
         }).catch((error) => {
             alert('Error retrieving data!');
@@ -29,6 +30,7 @@ const Quiz = () => {
     let [userName, setUserName] = useState('')
     let [category, setCategory] = useState('')
     let [score, setScore] = useState(0)
+    let [token, setToken] = useState('')
     let [questionNumber, setQuestionNumber] = useState(0)
     const [categoryQuestions, setCategoryQuestions] = useState([])
     const [name] = useState('')
@@ -63,9 +65,11 @@ const Quiz = () => {
         });
     }
     function nextQuestion() {
+        console.log(userName)
         if (questionNumber === categoryQuestions.length - 1) {
-            console.log(userName)
-            if(userName === 'empty'){
+            console.log('test1')
+            if (isNotLogged === true) {
+                console.log('dzilaam')
                 questionContent = (
                     <div id="homePageBackground">
                         <div>{'Twój wynik to: ' + score}</div>
@@ -74,6 +78,7 @@ const Quiz = () => {
                     </div>
                 )
             } else {
+                console.log('dzilaam')
                 questionContent = (
                     <div id="homePageBackground">
                         <div>{'Twój wynik to: ' + score}</div>

@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const HandleChangeRoute = () => {
-        navigate('/')
+        navigate('/login')
         window.location.reload();
     };
 
@@ -43,7 +43,7 @@ const Register = () => {
                 </div>
                 <div id="signForm">
                     <form id="formSign" onSubmit={HandleSubmit}>
-                            <input className="formInput" placeholder="First Name" size="lg"
+                            <input className="formInput" placeholder="Username" size="lg"
                                    onChange={e => setName(e.target.value)}/><br />
                             <input className="formInput" placeholder="Email" size="lg"
                                    onChange={e => setEmail(e.currentTarget.value)}/><br />
