@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react';
 import '../App.css'
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
+import {isExpired} from "react-jwt";
 
 const Quiz = () => {
     const navigate = useNavigate();
+    const [isNotLogged,setIsNotLogged] = useState(true)
     useEffect(() => {
+        setIsNotLogged(isExpired(localStorage.getItem('token')));
         axios({
             method: 'get',
             url: 'http://localhost:3001/api/quiz',
