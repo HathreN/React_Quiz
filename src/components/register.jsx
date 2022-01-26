@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../Form.css'
+import '../Input.css'
+import '../App.css'
 import axios from "axios";
 
 const Register = () => {
@@ -38,14 +40,14 @@ const Register = () => {
         ;
     };
     return (
-        <div id="signUpBackground">
+        <div id="homePageBackground">
             <div id="signinForm">
                 </div>
                 <div id="signForm">
                     <form id="formSign" onSubmit={HandleSubmit}>
                             <input className="formInput" placeholder="Username" size="lg"
                                    onChange={e => setName(e.target.value)}/><br />
-                            <input className="formInput" placeholder="Email" size="lg"
+                            <input className="formInput" placeholder="Email" size="lg" type={"email"}
                                    onChange={e => setEmail(e.currentTarget.value)}/><br />
                                 <input id="password1"
                                        pr="4.5rem"
@@ -55,7 +57,7 @@ const Register = () => {
                                 />
 
                             <br/>
-                            <button id="createAccountButton" type="submit" colorScheme="blue">Stwórz konto!</button>&nbsp;&nbsp;
+                            <button className="homePageButton" type="submit" >Stwórz konto!</button>
                     </form>
                 </div>
         </div>

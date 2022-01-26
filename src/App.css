@@ -83,6 +83,7 @@
 }
 #resultPageBackground{
   background-color: #F7F7F7;
+  background-repeat: repeat;
   background-size: cover;
   background-image: url('./images/background.jpg');
   width: 100vw;
@@ -149,6 +150,8 @@
   margin-bottom: 20px;
   display: grid;
   justify-content: center;
+  background-repeat: repeat;
+
 }
 #individualResult{
   border-style: solid;
@@ -167,4 +170,11 @@
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+body{
+  background-color: #F7F7F7;
+  background-repeat: repeat;
+  background-size: cover;
+  background-image: url('./images/background.jpg');
 }

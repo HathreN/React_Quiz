@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../Form.css'
+import '../Input.css'
+import '../App.css'
 import axios from "axios";
 
 const Login = () => {
@@ -40,12 +42,12 @@ const Login = () => {
         ;
     };
     return (
-        <div id="signUpBackground">
+        <div id="homePageBackground">
             <div id="signinForm">
             </div>
             <div id="signForm">
                 <form id="formSign" onSubmit={Validate}>
-                    <input className="formInput" placeholder="First Name" size="lg"
+                    <input className="formInput" placeholder="Login or Email" size="lg"
                            onChange={e => setEmail(e.target.value)}/><br />
                     <input id="password1"
                            pr="4.5rem"
@@ -55,7 +57,7 @@ const Login = () => {
                     />
 
                     <br/>
-                    <button id="createAccountButton" type="submit" colorScheme="blue">Zaloguj!</button>&nbsp;&nbsp;
+                    <button className="homePageButton"type="submit" >Zaloguj!</button>
                 </form>
             </div>
         </div>

@@ -8,6 +8,7 @@ const Quiz = () => {
     const navigate = useNavigate();
     const [isNotLogged,setIsNotLogged] = useState(true)
     useEffect(() => {
+        setLevel(localStorage.getItem("level"));
         setIsNotLogged(isExpired(localStorage.getItem('token')));
         axios({
             method: 'get',
@@ -33,6 +34,7 @@ const Quiz = () => {
     let [userName, setUserName] = useState('')
     let [category, setCategory] = useState('')
     let [score, setScore] = useState(0)
+    let [level, setLevel] = useState(1)
     let [token, setToken] = useState('')
     let [questionNumber, setQuestionNumber] = useState(0)
     const [categoryQuestions, setCategoryQuestions] = useState([])
