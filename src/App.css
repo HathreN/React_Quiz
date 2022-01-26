@@ -45,6 +45,16 @@
   display: flex;
   justify-content: center;
 }
+#quizPageBackground {
+  background-color: #F7F7F7;
+  color: white;
+  background-size: cover;
+  background-image: url('./images/background.jpg');
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 #homePageContent {
   margin-top: 10%;
   height: 60vh;
@@ -74,12 +84,55 @@
 #quizQuestion{
   font-size: 20px;
   color: white;
+  width: 800px;
   background-color: #4CAF50;
   border-radius: 20px;
   box-shadow: 0 9px #999;
   border-spacing: 10px;
   margin: 20px 20px 40px;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+.quizResult{
+  font-size: 20px;
+  width: 800px;
+  background-color: #4CAF50;
+  border-radius: 20px;
+  box-shadow: 0 9px #999;
+  border-spacing: 10px;
+  margin: 20px 20px 40px;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+#quizScore{
+  font-size: 20px;
+  color: white;
+  width: 200px;
+  height: 200px;
+  margin-left: 38%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px;
+  background-color: #4CAF50;
+  border-style: solid;
+  border-color: black;
+  border-radius: 120px;
+}
+#quizScore1{
+  font-size: 20px;
+  color: white;
+  width: 200px;
+  height: 200px;
+  margin-left: 12%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px;
+  background-color: #4CAF50;
+  border-style: solid;
+  border-color: black;
+  border-radius: 120px;
+}
+#timer{
+  font-size: 50px;
+  color: white;
 }
 #resultPageBackground{
   background-color: #F7F7F7;
@@ -106,6 +159,37 @@
   box-shadow: 0 9px #999;
   margin-bottom: 100px;
 }
+.levelChooseButton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-bottom: 100px;
+  margin-right: 20px;
+}
+.showCategoryResultsButton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-bottom: 10px;
+}
 .resultScoreButton{
   display: inline-block;
   padding: 15px 25px;
@@ -120,6 +204,8 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
   margin-bottom: 100px;
+  margin-right: 200px;
+  margin-top: 50px;
   height: 150px;
 }
 .resultPostScoreButton{
@@ -153,7 +239,7 @@
   background-repeat: repeat;
 
 }
-#individualResult{
+.individualResult{
   border-style: solid;
   border-radius: 50px;
   margin: 10px 10px 10px 10px;

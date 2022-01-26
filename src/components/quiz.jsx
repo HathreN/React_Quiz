@@ -3,10 +3,11 @@ import '../App.css'
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import {isExpired} from "react-jwt";
+import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 
 const Quiz = () => {
     const navigate = useNavigate();
-    const [isNotLogged,setIsNotLogged] = useState(true)
+    const [isNotLogged, setIsNotLogged] = useState(true)
     useEffect(() => {
         setLevel(localStorage.getItem("level"));
         setIsNotLogged(isExpired(localStorage.getItem('token')));
@@ -43,7 +44,7 @@ const Quiz = () => {
         console.log(score);
         setQuestionNumber(questionNumber + 1);
         if (answer === true) {
-            setScore(score+1)
+            setScore(score + 1)
             console.log(questionNumber);
             nextQuestion();
         } else {
@@ -52,6 +53,7 @@ const Quiz = () => {
         }
     };
     let questionContent;
+
     function goToResults() {
         console.log(score + ' ' + category + ' ' + userName)
         axios({
@@ -63,12 +65,18 @@ const Quiz = () => {
                 score: score,
             }
         }).then((response) => {
-            navigate('/result')
+            localStorage.removeItem('id');
+            navigate('/result');
         }).catch((error) => {
             alert('Error retrieving data!');
             console.log(error);
         });
     }
+    function goToHome(){
+        localStorage.removeItem('id');
+        navigate('/');
+    }
+
     function nextQuestion() {
         console.log(userName)
         if (questionNumber === categoryQuestions.length - 1) {
@@ -76,37 +84,59 @@ const Quiz = () => {
             if (isNotLogged === true) {
                 console.log('dzilaam')
                 questionContent = (
-                    <div id="homePageBackground">
-                        <div>{'Twój wynik to: ' + score}</div>
-                        <button className="resultScoreButton" onClick={() => navigate('/')}>{'Wróć do ekranu głównego'}</button>
-                        <button id="resultPostButton"className="resultPostScoreButton" disabled={true} onClick={() => goToResults()}>{'Przejdź do tablicy wyników'}</button>
+                    <div id="quizPageBackground">
+
+                        <div id="quizResult">
+                            <button className="resultScoreButton"
+                                    onClick={() => goToHome()}>{'Wróć do ekranu głównego'}</button>
+                           {/* <button id="resultPostButton" className="resultPostScoreButton" disabled={true}
+                                    onClick={() => goToResults()}>{'Przejdź do tablicy wyników'}</button>*/}
+                            <div id="quizScore1">{'Twój wynik to: ' + score}</div>
+                        </div>
                     </div>
                 )
             } else {
                 console.log('dzilaam')
                 questionContent = (
-                    <div id="homePageBackground">
-                        <div>{'Twój wynik to: ' + score}</div>
-                        <button className="resultScoreButton"
-                                onClick={() => navigate('/')}>{'Wróć do ekranu głównego'}</button>
-                        <button id="resultPostButton" className="resultPostScoreButton"
-                                onClick={() => goToResults()}>{'Przejdź do tablicy wyników'}</button>
+                    <div id="quizPageBackground">
+                        <div id="quizResult">
+                            <button className="resultScoreButton"
+                                    onClick={() => goToHome()}>{'Wróć do ekranu głównego'}</button>
+                            <button id="resultPostButton" className="resultPostScoreButton"
+                                    onClick={() => goToResults()}>{'Przejdź do tablicy wyników'}</button>
+                            <div id="quizScore">{'Twój wynik to: ' + score}</div>
+                        </div>
                     </div>
                 )
             }
         } else {
             questionContent = (
-                <div id="homePageBackground">
+                <div id="quizPageBackground">
                     {categoryQuestions.map((item, index) => (
                         index === questionNumber ? (
                             <div id="quizContent">
+                                <div id="timer">
+                                    <CountdownCircleTimer
+                                        isPlaying
+                                        duration={item.duration * level}
+                                        colors={['#4CAF50', '#F7B801', '#A30000', '#A30000']}
+                                        colorsTime={[7, 5, 2, 0]}
+                                        onComplete={() => {
+                                            setTimeout(() => {
+                                                checkAnswer(false)
+                                            }, 1000);
+                                        }}
+                                    >
+                                        {({remainingTime}) => remainingTime}
+                                    </CountdownCircleTimer>
+                                </div>
                                 <div id="quizQuestion">
                                     {item.question}
                                 </div>
                                 {item.answers.map((item) => (
                                     <div id="quizAnswers">
                                         <button className="homePageButton"
-                                                onClick={() => checkAnswer(item.isCorrect)}>{item.content}{item.isCorrect.toString()}</button>
+                                                onClick={() => checkAnswer(item.isCorrect)}>{item.content}</button>
                                     </div>
                                 ))}
                             </div>
