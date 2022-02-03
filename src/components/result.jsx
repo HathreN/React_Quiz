@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import '../App.css'
 import axios from "axios";
-import {forEach} from "react-bootstrap/ElementChildren";
 
 const Result = () => {
     const navigate = useNavigate();
@@ -34,7 +33,7 @@ const Result = () => {
             alert('Error retrieving data!');
             console.log(error);
         });
-    }, []);
+    });
 
     const resultsCategory = [];
     const [categories, setCategories] = useState([])
@@ -45,7 +44,6 @@ const Result = () => {
 
     function setVisibility(className) {
         let elems = document.getElementsByClassName(className);
-
         for (let i = 0; i < elems.length; i++) {
             elems[i].style.visibility = 'visible';
         }

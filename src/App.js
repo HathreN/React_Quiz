@@ -8,19 +8,9 @@ import Quiz from "./components/quiz";
 import Result from "./components/result";
 import Level from "./components/level"
 import {isExpired} from "react-jwt";
-import {useEffect} from "react";
 
 function App() {
-    let idNotChosen = true;
-    useEffect(() => {
-        if(localStorage.getItem("id") === null){
-            idNotChosen = false;
-        } else {
-            idNotChosen = true;
-        }
-    }, []);
     const isNotLogged = isExpired(localStorage.getItem('token'));
-
     return (
         <div className="App">
             <div>
@@ -29,7 +19,7 @@ function App() {
                         <Route path='/' element={<Homepage/>}/>
                         <Route path='/login' element={!isNotLogged ? <Navigate to='/'/> : <Login/>} />
                         <Route path='/register' element={!isNotLogged ? <Navigate to='/'/> : <Register/>} />
-                        <Route path='/quiz' element={!idNotChosen ? <Navigate to='/'/> : <Quiz/>} />
+                        <Route path='/quiz' element={<Quiz/>} />
                         <Route path='/result' element={isNotLogged ? <Navigate to='/login'/> : <Result/>} />
                         <Route path='/level' element={isNotLogged ? <Navigate to='/login'/> : <Level/>} />
                         <Route path='/category' element={<Category/>}/>

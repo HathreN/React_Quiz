@@ -7,21 +7,16 @@ import axios from "axios";
 
 const Login = () => {
 
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-
     const navigate = useNavigate();
 
-    const HandleChangeRoute = () => {
+    const handleChangeRoute = () => {
         navigate('/')
         window.location.reload();
     };
 
-
-
-    const Validate = (event) => {
+    const validate = (event) => {
         event.preventDefault();
         axios({
             method: 'post',
@@ -34,7 +29,7 @@ const Login = () => {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('userName',email);
             localStorage.setItem('isLoggedIn', 'yes');
-            HandleChangeRoute();
+            handleChangeRoute();
         }).catch((error) => {
             alert("Podany email lub login są błędne!")
             console.log(error);
@@ -46,7 +41,7 @@ const Login = () => {
             <div id="signinForm">
             </div>
             <div id="signForm">
-                <form id="formSign" onSubmit={Validate}>
+                <form id="formSign" onSubmit={validate}>
                     <input className="formInput" placeholder="Login or Email" size="lg"
                            onChange={e => setEmail(e.target.value)}/><br />
                     <input id="password1"

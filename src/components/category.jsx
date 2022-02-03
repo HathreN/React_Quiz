@@ -17,6 +17,7 @@ const Category = () => {
                 navigate('/level');
             } else {
                 navigate('/quiz');
+                localStorage.setItem("level", 1)
             }
     };
     const goToHome = () => {

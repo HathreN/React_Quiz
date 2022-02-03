@@ -14,14 +14,14 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const HandleChangeRoute = () => {
+    const handleChangeRoute = () => {
         navigate('/login')
         window.location.reload();
     };
 
 
 
-    const HandleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         axios({
             method: 'post',
@@ -32,7 +32,7 @@ const Register = () => {
                 password: password,
             }
         }).then((response) => {
-            HandleChangeRoute();
+            handleChangeRoute();
         }).catch((error) => {
             alert("Podany email lub login są już używane!")
             console.log(error);
@@ -44,7 +44,7 @@ const Register = () => {
             <div id="signinForm">
                 </div>
                 <div id="signForm">
-                    <form id="formSign" onSubmit={HandleSubmit}>
+                    <form id="formSign" onSubmit={handleSubmit}>
                             <input className="formInput" placeholder="Username" size="lg"
                                    onChange={e => setName(e.target.value)}/><br />
                             <input className="formInput" placeholder="Email" size="lg" type={"email"}

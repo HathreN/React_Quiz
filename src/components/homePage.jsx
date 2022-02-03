@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useNavigate} from "react-router-dom";
 import '../App.css'
-import {decodeToken, isExpired} from "react-jwt";
+import {isExpired} from "react-jwt";
 
 const Homepage = () => {
 
@@ -10,7 +10,6 @@ const Homepage = () => {
         localStorage.removeItem('token')
         window.location.reload();
     };
-    const [isLoggedIn, setIsLoggedIn] = useState('')
     const goToCategories = () => {
         navigate('/category')
     };
@@ -23,8 +22,6 @@ const Homepage = () => {
     const goToLogin = () => {
         navigate('/login')
     };
-    const [checkToken, setCheckToken] = useState('')
-    const user = decodeToken(localStorage.getItem('token'));
     const isNotLogged = isExpired(localStorage.getItem('token'));
 
 
